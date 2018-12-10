@@ -1,18 +1,15 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 const app = express();
 
+app.use(cors());
 app.use(bodyParser.json());
-app.use((request, response, next) => {
-  response.header("Access-Control-Allow-Origin", "*");
-  response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
 
 app.locals.data = [{ type: "human", name: "Chris" }];
 
 app.get("/data", (request, response) => {
-  response.status(200).json(app.locals.data);
+  return response.status(200).json(app.locals.data);
 });
 
 app.post("/data", (request, response) => {
