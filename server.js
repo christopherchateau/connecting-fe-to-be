@@ -27,4 +27,7 @@ app.post("/data", (request, response) => {
   }
 });
 
-app.listen(3001, () => console.log("Listening on port 3001"));
+app.set("port", process.env.PORT || 3001);
+app.listen(app.get("port"), () => {
+  console.log(`Cerebral Beer is running on ${app.get("port")}.`);
+});
