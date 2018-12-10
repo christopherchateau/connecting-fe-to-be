@@ -27,7 +27,7 @@ app.post("/data", (request, response) => {
   }
 });
 
-app.set("port", process.env.PORT || 3001);
-app.listen(app.get("port"), () => {
-  console.log(`Cerebral Beer is running on ${app.get("port")}.`);
-});
+app.listen(process.env.PORT || 3001);
+// app.listen(app.get("port"), () => {
+//   console.log(`Cerebral Beer is running on ${app.get("port")}.`);
+// });
