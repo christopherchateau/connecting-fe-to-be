@@ -2,17 +2,15 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
-const host = "0.0.0.0";
-const port = process.env.PORT || 3005;
 
 app.use(cors());
 app.use(bodyParser.json());
 
 app.locals.data = [{ type: "human", name: "Chris" }];
 
-app.get("/data", (request, response) => {
-  return response.status(200).json(app.locals.data);
-});
+// app.get("/data", (request, response) => {
+//   return response.status(200).json(app.locals.data);
+// });
 
 app.post("/data", (request, response) => {
   const newData = request.body;
@@ -29,6 +27,4 @@ app.post("/data", (request, response) => {
   }
 });
 
-app.listen(port, host, function() {
-  console.log("Server started.......");
-});
+app.listen(process.env.PORT || 3005);
