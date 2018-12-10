@@ -2,6 +2,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
+const host = "0.0.0.0";
+const port = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -27,7 +29,6 @@ app.post("/data", (request, response) => {
   }
 });
 
-app.listen(process.env.PORT || 3001);
-// app.listen(app.get("port"), () => {
-//   console.log(`Cerebral Beer is running on ${app.get("port")}.`);
-// });
+app.listen(port, host, function() {
+  console.log("Server started.......");
+});
